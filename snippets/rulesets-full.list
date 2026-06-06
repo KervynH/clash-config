@@ -7,6 +7,7 @@
 ;增强国外GFW：支持
 
 🎯 全球直连,https://raw.githubusercontent.com/KervynH/clash-config/refs/heads/main/snippets/direct.list
+🚀 节点选择,https://raw.githubusercontent.com/KervynH/clash-config/refs/heads/main/snippets/proxy.list
 🎯 全球直连,https://raw.githubusercontent.com/cmliu/ACL4SSR/refs/heads/main/Clash/CFnat.list
 🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
 🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list

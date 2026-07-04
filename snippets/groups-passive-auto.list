@@ -1,3 +1,0 @@
-♻️ 自动选择`url-test`.*`http://www.gstatic.com/generate_204`180,,50
-;🔮 负载均衡`load-balance`.*`http://www.gstatic.com/generate_204`180
-;🔯 故障转移`fallback`.*`http://www.gstatic.com/generate_204`180

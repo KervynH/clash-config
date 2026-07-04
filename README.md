@@ -1,2 +1,3 @@
-Ref: [ACL4SSR/Clash/config/](https://github.com/ACL4SSR/ACL4SSR/tree/master/Clash/config)
-
+Ref: [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
+- [classical](https://github.com/MetaCubeX/meta-rules-dat/tree/meta/geo/geosite/classical)
+- [mrs](https://github.com/MetaCubeX/meta-rules-dat/tree/meta/geo/geosite)

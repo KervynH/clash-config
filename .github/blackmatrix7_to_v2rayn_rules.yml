@@ -1,0 +1,50 @@
+name: Build v2rayN routing rules from blackmatrix7 rules
+
+on:
+  schedule:
+    # UTC 21:00 = 北京时间次日 05:00，避开 blackmatrix7 的凌晨更新窗口
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/blackmatrix7_to_v2rayn-*.py"
+      - ".github/workflows/blackmatrix7_tov2rayn-rules.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blackmatrix7-to-v2rayn-rules
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build
+        run: |
+          set -euo pipefail
+          for f in scripts/blackmatrix7_to_v2rayn-*.py; do
+            echo "::group::$f"
+            python3 "$f"
+            echo "::endgroup::"
+          done
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- ':(glob)v2rayn-*.json'
+          if git diff --cached --quiet; then
+            echo "规则无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore: rebuild v2rayN rules ($(date -u +%Y-%m-%d))"
+          git push
